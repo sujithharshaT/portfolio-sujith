@@ -1,0 +1,38 @@
+.exploring-section {
+  padding: 10vh 0;
+  overflow: hidden;
+}
+
+.exploring-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-silver);
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.exploring-marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.exploring-row {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+}
+
+.exploring-item {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1;
+}
+
+.exploring-item.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-muted);
+}

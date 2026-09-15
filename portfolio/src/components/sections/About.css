@@ -1,0 +1,52 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-header h2 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1;
+  color: var(--text-white);
+}
+
+.about-text {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  line-height: 1.6;
+  color: var(--text-silver);
+  margin-bottom: 2rem;
+}
+
+.about-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.keyword-pill {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-white);
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.keyword-pill:hover {
+  background: rgba(0, 255, 255, 0.05);
+  border-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

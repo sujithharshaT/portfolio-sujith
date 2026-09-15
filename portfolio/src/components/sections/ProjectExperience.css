@@ -1,0 +1,136 @@
+.experience-section {
+  padding: 10vh 0;
+  overflow: hidden;
+}
+
+.experience-wrapper {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.experience-line-bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border-subtle);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.experience-line-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  background: var(--accent-cyan-solid);
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: 0 0 10px var(--accent-cyan-solid);
+}
+
+.experience-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 3;
+}
+
+.experience-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 18%;
+  background: var(--bg-deep-black); /* To hide line behind text if needed */
+}
+
+.step-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-silver);
+  margin-bottom: 1rem;
+}
+
+.step-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--bg-deep-black);
+  border: 2px solid var(--text-white);
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.experience-step:hover .step-dot {
+  background: var(--text-white);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .experience-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  
+  .experience-step {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: row;
+    position: relative;
+    padding-left: 3rem;
+  }
+  
+  .experience-line-bg {
+    top: 0;
+    left: 17px; /* Align with dots */
+    width: 1px;
+    height: 100%;
+    transform: none;
+  }
+  
+  .experience-line-progress {
+    top: 0;
+    left: 17px;
+    width: 2px !important; /* Override inline style width */
+    height: 100%; /* Ideally animated height, but fallback to static or use CSS */
+    transform: none;
+  }
+  
+  .step-number {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    margin-bottom: 0;
+    opacity: 0; /* Hide number on mobile to save space, or style differently */
+  }
+  
+  .step-dot {
+    position: absolute;
+    left: 12px;
+    top: 4px;
+    margin-bottom: 0;
+  }
+  
+  .step-title {
+    margin-right: 1rem;
+  }
+}

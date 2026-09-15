@@ -1,0 +1,105 @@
+.journey-section {
+  padding: 15vh 0;
+  background: var(--bg-deep-black);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.journey-header {
+  margin-bottom: 5rem;
+}
+
+.journey-subtitle {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  color: var(--text-silver);
+  margin-top: 0.5rem;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.journey-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+.journey-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.journey-num {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent-cyan-solid);
+}
+
+.journey-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-card:hover .journey-indicator {
+  background: var(--accent-cyan-solid);
+  box-shadow: 0 0 8px var(--accent-cyan-solid);
+}
+
+.journey-stage {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.journey-desc {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-silver);
+}
+
+@media (max-width: 1024px) {
+  .journey-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .journey-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .journey-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
