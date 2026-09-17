@@ -33,24 +33,25 @@
 
 .cert-modal-close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text-secondary);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
+  touch-action: manipulation;
 }
 
 .cert-modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   color: var(--text-primary);
   transform: rotate(90deg);
 }
@@ -207,9 +208,9 @@
 
 .cert-recipient {
   font-family: var(--font-sans);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.5rem, 4.5vw, 2.8rem);
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.1;
@@ -419,9 +420,14 @@
 
 .cert-verify-btn,
 .cert-dismiss-btn {
-  padding: 10px 18px;
+  padding: 11px 20px;
   font-size: 0.8rem;
   letter-spacing: 0.1em;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
 }
 
 @media (max-width: 680px) {

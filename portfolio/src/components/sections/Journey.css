@@ -1,44 +1,70 @@
 .journey-section {
-  padding: 15vh 0;
+  padding: 13vh 0;
   background: var(--bg-deep-black);
   border-top: 1px solid var(--border-subtle);
   position: relative;
 }
 
 .journey-header {
-  margin-bottom: 5rem;
+  margin-bottom: 4.5rem;
+}
+
+.journey-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-cyan-solid);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.journey-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-cyan-solid);
 }
 
 .journey-subtitle {
   font-family: var(--font-main);
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
   color: var(--text-silver);
-  margin-top: 0.5rem;
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 .journey-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .journey-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  padding: 2.25rem 1.75rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  outline: none;
+}
+
+.journey-card:focus-visible {
+  outline: 2px solid var(--accent-cyan-solid);
+  outline-offset: 4px;
 }
 
 .journey-card:hover {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(0, 255, 255, 0.3);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.05);
 }
 
 .journey-card-top {
@@ -49,7 +75,7 @@
 }
 
 .journey-num {
-  font-family: var(--font-main);
+  font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -71,16 +97,17 @@
 
 .journey-stage {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--text-white);
   letter-spacing: -0.01em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.2;
 }
 
 .journey-desc {
   font-family: var(--font-main);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.6;
   color: var(--text-silver);
 }
@@ -93,13 +120,20 @@
 }
 
 @media (max-width: 640px) {
+  .journey-section {
+    padding: 9vh 0;
+  }
+
+  .journey-header {
+    margin-bottom: 2.5rem;
+  }
+
   .journey-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   
   .journey-card {
-    padding: 2rem 1.5rem;
+    padding: 1.75rem 1.25rem;
   }
 }
-

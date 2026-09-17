@@ -7,27 +7,30 @@ import './FeaturedWork.css';
 
 const FeaturedWork = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Group projects for the asymmetric layout based on our Phase 2 data design
-  // We assume: Rathora (featured), Dhanurx (medium), AI Studio (standard), The Lab (standard)
   const featuredProject = PORTFOLIO_DATA.projects[0];
   const mediumProject = PORTFOLIO_DATA.projects[1];
   const standardProjects = PORTFOLIO_DATA.projects.slice(2);
 
   return (
     <section id="work" className="section work-section">
-      <div className="container">
-        <motion.h2 
-          className="section-title"
-          ref={ref}
+      <div className="container" ref={ref}>
+        <motion.div 
+          className="work-section-header"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          SELECTED WORK
-        </motion.h2>
+          <div className="work-eyebrow">
+            <span>PORTFOLIO & VENTURES</span>
+          </div>
+          <h2 className="section-title">SELECTED WORK</h2>
+          <p className="work-subtitle">
+            Exploring AI interfaces, automotive experiences, and interactive web architecture.
+          </p>
+        </motion.div>
         
         <div className="editorial-layout">
           {/* Row 1: Massive Feature */}

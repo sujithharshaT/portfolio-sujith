@@ -1,7 +1,6 @@
 .hero-3d-wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -14,6 +13,7 @@
   width: 100% !important;
   height: 100% !important;
   display: block;
+  pointer-events: none;
 }
 
 .hero-3d-fallback {
@@ -21,32 +21,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 250px;
+  width: 260px;
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 .fallback-sculpture {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 1px solid rgba(0, 255, 255, 0.2);
-  box-shadow: 0 0 50px rgba(0, 255, 255, 0.1), inset 0 0 50px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 45px rgba(0, 255, 255, 0.12), inset 0 0 40px rgba(255, 255, 255, 0.04);
   animation: fallbackFloat 6s ease-in-out infinite alternate;
 }
 
 .fallback-ring {
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
+  inset: -12px;
   border-radius: 50%;
-  border: 1px dashed rgba(255, 255, 255, 0.2);
-  animation: fallbackSpin 20s linear infinite;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  animation: fallbackSpin 25s linear infinite;
 }
 
 .fallback-core {
@@ -54,15 +52,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.35) 0%, transparent 70%);
   border-radius: 50%;
 }
 
 @keyframes fallbackFloat {
   0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(-16px) rotate(4deg); }
 }
 
 @keyframes fallbackSpin {
@@ -72,6 +70,13 @@
 
 @media (max-width: 768px) {
   .hero-3d-wrapper {
-    opacity: 0.5;
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fallback-sculpture,
+  .fallback-ring {
+    animation: none !important;
   }
 }

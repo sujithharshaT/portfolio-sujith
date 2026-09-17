@@ -1,23 +1,23 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Play } from 'lucide-react';
 import './CreativeCard.css';
 
 const CreativeCard = ({ item, onClick }) => {
   const cardRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const canHover = typeof window !== 'undefined' && window.matchMedia('(pointer: fine) and (hover: hover)').matches;
 
-  // Parallax effect for the image inside the card container
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "end start"]
   });
   
-  // Very subtle image shifting on scroll
-  const yParallax = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const yParallax = useTransform(scrollYProgress, [0, 1], [-16, 16]);
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+    if (!canHover || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     setMousePos({ 
       x: e.clientX - rect.left, 
@@ -27,13 +27,13 @@ const CreativeCard = ({ item, onClick }) => {
 
   const getPlaceholderStyle = (id) => {
     const gradients = {
-      'featured-reel': 'linear-gradient(135deg, #1f1f1f 0%, #000000 100%)',
-      'tokyo-drift': 'linear-gradient(135deg, #2d1033 0%, #0f0514 100%)',
-      'ai-landscapes': 'linear-gradient(135deg, #102e33 0%, #041214 100%)',
-      'monochrome': 'linear-gradient(135deg, #333333 0%, #000000 100%)',
-      'motion-lab': 'linear-gradient(135deg, #332010 0%, #140b04 100%)'
+      'featured-reel': 'linear-gradient(135deg, #1c1c22 0%, #08080a 100%)',
+      'tokyo-drift': 'linear-gradient(135deg, #24112c 0%, #0c0410 100%)',
+      'ai-landscapes': 'linear-gradient(135deg, #0e2329 0%, #030d0f 100%)',
+      'monochrome': 'linear-gradient(135deg, #252528 0%, #09090b 100%)',
+      'motion-lab': 'linear-gradient(135deg, #2a1b12 0%, #0e0703 100%)'
     };
-    return gradients[id] || 'linear-gradient(135deg, #1a1a1a 0%, #000000 100%)';
+    return gradients[id] || 'linear-gradient(135deg, #18181c 0%, #070709 100%)';
   };
 
   const handleClick = () => {
@@ -59,40 +59,46 @@ const CreativeCard = ({ item, onClick }) => {
       tabIndex={0}
       role="button"
       aria-label={`View ${item.title}`}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="creative-media-container">
-        
-        {/* Interactive Lighting */}
-        <div 
-          className="creative-light"
-          style={{
-            background: `radial-gradient(circle 350px at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.08), transparent 80%)`,
-            opacity: isHovered ? 1 : 0
-          }}
-        />
+        {/* Interactive Lighting (desktop fine pointer only) */}
+        {canHover && (
+          <div 
+            className="creative-light"
+            style={{
+              background: `radial-gradient(circle 350px at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.08), transparent 80%)`,
+              opacity: isHovered ? 1 : 0
+            }}
+          />
+        )}
 
-        {/* The Media / Placeholder */}
+        {/* Media Frame */}
         <motion.div 
           className="creative-media"
           style={{ 
-            y: yParallax, 
+            y: canHover ? yParallax : 0, 
             background: getPlaceholderStyle(item.id) 
           }}
-          animate={{ scale: isHovered ? 1.05 : 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          animate={{ scale: isHovered && canHover ? 1.04 : 1 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Dynamic noise layer that intensifies on hover */}
-          <div 
-            className="creative-noise"
-            style={{ opacity: isHovered ? 0.15 : 0.05 }}
-          ></div>
+          <div className="creative-noise"></div>
+          <div className="creative-grid-overlay"></div>
           
-          {item.type === 'video' && (
-            <div className="video-badge">[ VIDEO PLACEHOLDER ]</div>
+          {item.type === 'video' ? (
+            <div className="creative-media-badge">
+              <Play size={11} className="badge-play-icon" />
+              <span>CINEMATIC REEL</span>
+            </div>
+          ) : (
+            <div className="creative-media-badge image-badge">
+              <span className="badge-dot"></span>
+              <span>VISUAL ARCHIVE</span>
+            </div>
           )}
         </motion.div>
       </div>
@@ -108,17 +114,9 @@ const CreativeCard = ({ item, onClick }) => {
           <span className="creative-category">{item.category}</span>
         </div>
 
-        <motion.div 
-          className="creative-description-wrap"
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ 
-            height: isHovered ? 'auto' : 0, 
-            opacity: isHovered ? 1 : 0 
-          }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="creative-description-wrap">
           <p className="creative-description">{item.description}</p>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );

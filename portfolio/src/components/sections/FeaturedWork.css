@@ -1,13 +1,54 @@
 .work-section {
   padding-top: 10rem;
   padding-bottom: 10rem;
+  position: relative;
+}
+
+.work-section-header {
+  margin-bottom: 4.5rem;
+}
+
+.work-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-cyan-solid);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.work-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-cyan-solid);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.work-subtitle {
+  font-family: var(--font-main);
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  color: var(--text-silver);
+  max-width: 620px;
+  line-height: 1.6;
 }
 
 .editorial-layout {
   display: flex;
   flex-direction: column;
-  gap: 8rem;
-  margin-top: 4rem;
+  gap: 6rem;
 }
 
 .layout-row {
@@ -20,34 +61,46 @@
 
 .row-medium {
   display: flex;
-  justify-content: flex-end; /* Offset to the right */
+  justify-content: flex-end;
 }
 
 .medium-wrapper {
-  width: 70%; /* Takes up 70% of the container */
+  width: 72%;
 }
 
 .row-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3.5rem;
   align-items: start;
 }
 
-/* Add slight masonry offset to the split row */
+/* Offset second item for editorial rhythm */
 .row-split > :nth-child(2) {
-  margin-top: 6rem;
+  margin-top: 5rem;
 }
 
 @media (max-width: 1024px) {
   .medium-wrapper {
-    width: 85%;
+    width: 88%;
+  }
+  .editorial-layout {
+    gap: 4.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .work-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .work-section-header {
+    margin-bottom: 3rem;
+  }
+
   .editorial-layout {
-    gap: 4rem;
+    gap: 3.5rem;
   }
 
   .row-medium {
@@ -60,7 +113,7 @@
 
   .row-split {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3.5rem;
   }
 
   .row-split > :nth-child(2) {

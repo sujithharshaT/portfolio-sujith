@@ -2,34 +2,64 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const CustomCursor = () => {
+  const [isEnabled, setIsEnabled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [cursorVariant, setCursorVariant] = useState('default');
   const [cursorText, setCursorText] = useState('');
   const [clicked, setClicked] = useState(false);
-  
+
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia('(pointer: fine) and (hover: hover)');
+    
+    const updateEnabledState = () => {
+      setIsEnabled(mediaQuery.matches);
+    };
+
+    updateEnabledState();
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', updateEnabledState);
+    } else {
+      mediaQuery.addListener(updateEnabledState);
+    }
+
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', updateEnabledState);
+      } else {
+        mediaQuery.removeListener(updateEnabledState);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isEnabled) return;
+
     const mouseMove = (e) => {
       setMousePosition({
         x: e.clientX,
         y: e.clientY
       });
     };
-    
-    window.addEventListener('mousemove', mouseMove);
-    return () => window.removeEventListener('mousemove', mouseMove);
-  }, []);
 
-  useEffect(() => {
     const handleMouseOver = (e) => {
-      if (e.target.closest('input') || e.target.closest('textarea')) {
+      const target = e.target;
+      if (target.closest('input') || target.closest('textarea')) {
         setCursorVariant('hidden');
         setCursorText('');
-      } else if (e.target.closest('a') || e.target.closest('button')) {
-        setCursorVariant('hover');
-        setCursorText('');
-      } else if (e.target.closest('.project-card') || e.target.closest('.creative-card') || e.target.closest('.gallery-item') || e.target.closest('.certificate-card')) {
+      } else if (
+        target.closest('.project-card') || 
+        target.closest('.creative-card') || 
+        target.closest('.certificate-card') ||
+        target.closest('.experiment-card')
+      ) {
         setCursorVariant('project');
         setCursorText('VIEW');
+      } else if (target.closest('a') || target.closest('button') || target.closest('[role="button"]')) {
+        setCursorVariant('hover');
+        setCursorText('');
       } else {
         setCursorVariant('default');
         setCursorText('');
@@ -38,17 +68,21 @@ const CustomCursor = () => {
 
     const handleMouseDown = () => setClicked(true);
     const handleMouseUp = () => setClicked(false);
-    
-    window.addEventListener('mouseover', handleMouseOver);
+
+    window.addEventListener('mousemove', mouseMove, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
-    
+
     return () => {
+      window.removeEventListener('mousemove', mouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) return null;
 
   // Dot variants
   const dotVariants = {
@@ -83,10 +117,10 @@ const CustomCursor = () => {
       transition: { type: 'spring', mass: 0.1, stiffness: 800, damping: 50 }
     },
     project: {
-      x: mousePosition.x - 40,
-      y: mousePosition.y - 40,
-      height: 80,
-      width: 80,
+      x: mousePosition.x - 36,
+      y: mousePosition.y - 36,
+      height: 72,
+      width: 72,
       backgroundColor: 'var(--text-white)',
       border: 'none',
       scale: clicked ? 0.9 : 1,
@@ -102,9 +136,6 @@ const CustomCursor = () => {
       transition: { duration: 0.15 }
     }
   };
-
-  const isDesktop = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
-  if (!isDesktop) return null;
 
   return (
     <>
@@ -139,9 +170,9 @@ const CustomCursor = () => {
           alignItems: 'center',
           justifyContent: 'center',
           color: 'var(--bg-deep-black)',
-          fontSize: '0.8rem',
+          fontSize: '0.75rem',
           fontWeight: '700',
-          letterSpacing: '0.05em'
+          letterSpacing: '0.08em'
         }}
       >
         {cursorVariant === 'project' && cursorText}

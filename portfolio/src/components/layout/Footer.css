@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  width: 100%;
 }
 
 .footer-name {
@@ -15,11 +16,11 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-white);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .footer-role {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
 }
 
@@ -28,22 +29,27 @@
 }
 
 .footer-copyright {
-  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .footer-tagline {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-silver);
   font-style: italic;
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0;
+  }
+
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.75rem;
   }
   
   .footer-right {

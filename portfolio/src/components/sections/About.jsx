@@ -5,7 +5,7 @@ import './About.css';
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -18,8 +18,8 @@ const About = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    hidden: { opacity: 0, y: 25 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
   };
 
   return (
@@ -32,6 +32,7 @@ const About = () => {
           className="about-grid"
         >
           <motion.div variants={itemVariants} className="about-header">
+            <span className="about-eyebrow">BACKGROUND & FOCUS</span>
             <h2>I LIKE BUILDING THINGS.</h2>
           </motion.div>
           
