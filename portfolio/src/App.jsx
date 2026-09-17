@@ -5,7 +5,6 @@ import Navigation from './components/layout/Navigation';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import FeaturedWork from './components/sections/FeaturedWork';
-import Creative from './components/sections/Creative';
 import Experiments from './components/sections/Experiments';
 import PersonalPhilosophy from './components/sections/PersonalPhilosophy';
 import Certificates from './components/sections/Certificates';
@@ -24,7 +23,6 @@ function App() {
         <Hero />
         <About />
         <FeaturedWork />
-        <Creative />
         <Experiments />
         <PersonalPhilosophy />
         <Certificates />

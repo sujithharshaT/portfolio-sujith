@@ -63,7 +63,7 @@ const Navigation = () => {
     { name: 'WORK', href: '#work' },
     { name: 'ABOUT', href: '#about' },
     { name: 'EXPERIMENTS', href: '#experiments' },
-    { name: 'CREATIVE', href: '#creative' },
+    { name: 'CREDENTIALS', href: '#certificates' },
     { name: 'CONTACT', href: '#contact' },
   ];
 
@@ -72,7 +72,6 @@ const Navigation = () => {
     { name: 'WORK', href: '#work' },
     { name: 'ABOUT', href: '#about' },
     { name: 'EXPERIMENTS', href: '#experiments' },
-    { name: 'CREATIVE', href: '#creative' },
     { name: 'CREDENTIALS', href: '#certificates' },
     { name: 'JOURNEY', href: '#journey' },
     { name: 'CONTACT', href: '#contact' },
