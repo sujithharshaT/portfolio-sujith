@@ -74,7 +74,6 @@ const ProjectCard = ({ project, onClick }) => {
           <div className="card-grid-pattern"></div>
           
           <div className="card-ambient-spec">
-            <span className="spec-year">{project.year}</span>
             <span className="spec-tech">{project.technologies?.[0] || 'TECH'}</span>
           </div>
         </motion.div>

@@ -97,10 +97,6 @@ const ProjectModal = ({ project, onClose }) => {
                       <p>{project.status}</p>
                     </div>
                     <div className="meta-group">
-                      <h4>YEAR</h4>
-                      <p>{project.year}</p>
-                    </div>
-                    <div className="meta-group">
                       <h4>TECHNOLOGIES</h4>
                       <div className="tech-tags">
                         {project.technologies?.map((tech, i) => (

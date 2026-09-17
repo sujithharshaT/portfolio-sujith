@@ -116,7 +116,6 @@ const CertificateModal = ({ certificate, onClose }) => {
                   <div className="cert-sig-line"></div>
                   <span className="cert-footer-label">CREDENTIAL ID</span>
                   <span className="cert-footer-val">{certificate.credentialId}</span>
-                  <span className="cert-footer-year">YEAR {certificate.year}</span>
                 </div>
               </div>
             </div>

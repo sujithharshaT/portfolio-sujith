@@ -30,7 +30,6 @@ export const PORTFOLIO_DATA = {
       heroMedia: null,
       externalUrl: null,
       technologies: ["React", "WebGL", "Framer Motion"],
-      year: "2024",
       layoutType: "featured"
     },
     {
@@ -44,7 +43,6 @@ export const PORTFOLIO_DATA = {
       heroMedia: null,
       externalUrl: null,
       technologies: ["React", "Three.js", "AI Integration"],
-      year: "2024",
       layoutType: "medium"
     },
     {
@@ -58,7 +56,6 @@ export const PORTFOLIO_DATA = {
       heroMedia: null,
       externalUrl: null,
       technologies: ["Generative AI", "Video Processing", "Web Automation"],
-      year: "2024",
       layoutType: "standard"
     },
     {
@@ -72,7 +69,6 @@ export const PORTFOLIO_DATA = {
       heroMedia: null,
       externalUrl: null,
       technologies: ["Various", "Experimental"],
-      year: "2024",
       layoutType: "standard"
     }
   ],
@@ -156,9 +152,8 @@ export const PORTFOLIO_DATA = {
   creativeWork: [
     {
       id: "featured-reel",
-      title: "2024 DIRECTOR'S REEL",
+      title: "DIRECTOR'S REEL",
       category: "CINEMATIC EDIT",
-      year: "2024",
       description: "A showcase of visual storytelling, motion design, and cinematography.",
       type: "video",
       mediaUrl: null, // Placeholder
@@ -169,7 +164,6 @@ export const PORTFOLIO_DATA = {
       id: "tokyo-drift",
       title: "TOKYO NIGHTS",
       category: "TRAVEL FILMMAKING",
-      year: "2023",
       description: "An exploration of cyberpunk aesthetics in the streets of Shinjuku.",
       type: "video",
       mediaUrl: null,
@@ -179,7 +173,6 @@ export const PORTFOLIO_DATA = {
       id: "ai-landscapes",
       title: "SYNTHETIC NATURE",
       category: "AI-GENERATED VISUALS",
-      year: "2024",
       description: "Exploring the boundary between organic forms and algorithmic generation.",
       type: "image",
       mediaUrl: null,
@@ -189,7 +182,6 @@ export const PORTFOLIO_DATA = {
       id: "monochrome",
       title: "MONOCHROME STREETS",
       category: "PHOTOGRAPHY",
-      year: "2022",
       description: "Street photography focusing on high contrast and human emotion.",
       type: "image",
       mediaUrl: null,
@@ -199,7 +191,6 @@ export const PORTFOLIO_DATA = {
       id: "motion-lab",
       title: "KINETIC TYPE",
       category: "MOTION EXPERIMENTS",
-      year: "2024",
       description: "Physics-based typography and WebGL motion design.",
       type: "video",
       mediaUrl: null,
@@ -214,9 +205,8 @@ export const PORTFOLIO_DATA = {
       distinction: "GOLD AWARD",
       badge: "GOLD DISTINCTION",
       issuer: "AI Intensive Summer Academy",
-      year: "2024",
       domain: "ARTIFICIAL INTELLIGENCE",
-      credentialId: "SH-AI-2024-001",
+      credentialId: "SH-AI-001",
       description: "Conferred the prestigious Gold Award distinction for outstanding achievement and technical excellence across machine learning algorithms, deep learning foundations, and modern AI architectures.",
       skills: ["Machine Learning", "Neural Networks", "Python", "Generative AI"],
       theme: "gold",
@@ -228,9 +218,8 @@ export const PORTFOLIO_DATA = {
       distinction: "BUILDING A STARTUP",
       badge: "VENTURE FELLOW",
       issuer: "Ignition Startup Acceleration",
-      year: "2024",
       domain: "ENTREPRENEURSHIP",
-      credentialId: "SH-IGN-2024-002",
+      credentialId: "SH-IGN-002",
       description: "Selected recognition for startup ideation, venture incubation, and business viability modeling—turning ambitious digital concepts into validated real-world initiatives.",
       skills: ["Product Strategy", "Venture Building", "System Architecture", "Prototyping"],
       theme: "amber",
@@ -242,9 +231,8 @@ export const PORTFOLIO_DATA = {
       distinction: "PARTICIPATION",
       badge: "DEVELOPER VERIFIED",
       issuer: "Open Source Developer Foundation",
-      year: "2023",
       domain: "SOFTWARE ENGINEERING",
-      credentialId: "SH-GIT-2023-003",
+      credentialId: "SH-GIT-003",
       description: "Certified proficiency in modern Git version control, branching strategies, collaborative repository engineering, pull-request lifecycles, and code synchronization.",
       skills: ["Git", "GitHub Workflows", "Version Control", "DevOps Foundations"],
       theme: "cyan",
@@ -256,9 +244,8 @@ export const PORTFOLIO_DATA = {
       distinction: "PARTICIPATION CERTIFICATE",
       badge: "NATIONAL TALENT",
       issuer: "National Science & Talent Council",
-      year: "2023",
       domain: "ANALYTICAL SCIENCE",
-      credentialId: "SH-NST-2023-004",
+      credentialId: "SH-NST-004",
       description: "National standard competitive evaluation acknowledging scientific acumen, quantitative reasoning, analytical deduction, and complex problem-solving capabilities.",
       skills: ["Scientific Logic", "Analytical Deduction", "Quantitative Reasoning"],
       theme: "emerald",

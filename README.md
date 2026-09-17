@@ -86,4 +86,4 @@ npm run preview
 
 ---
 
-© 2026 Sujith Harsha. All rights reserved.
+© Sujith Harsha. All rights reserved.

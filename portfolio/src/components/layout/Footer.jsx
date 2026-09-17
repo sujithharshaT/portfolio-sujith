@@ -3,8 +3,6 @@ import { PORTFOLIO_DATA } from '../../config/data';
 import './Footer.css';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear(); // Although requested 2026, we can make it dynamic or hardcoded as per prompt. The prompt says "© 2026 Sujith Harsha". Let's use 2026 specifically or dynamic. I'll use 2026.
-
   return (
     <footer className="footer">
       <div className="container">
@@ -15,7 +13,7 @@ const Footer = () => {
           </div>
           
           <div className="footer-right">
-            <p className="footer-copyright">© {currentYear} {PORTFOLIO_DATA.personal.name}</p>
+            <p className="footer-copyright">© {PORTFOLIO_DATA.personal.name}</p>
             <p className="footer-tagline">Built with curiosity.</p>
           </div>
         </div>

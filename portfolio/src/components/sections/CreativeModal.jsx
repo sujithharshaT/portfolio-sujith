@@ -82,7 +82,6 @@ const CreativeModal = ({ item, onClose }) => {
             <div className="creative-modal-info">
               <div className="creative-modal-meta-row">
                 <span className="creative-modal-category">{item.category}</span>
-                <span className="creative-modal-year">{item.year}</span>
               </div>
               <h2 id="creative-modal-title" className="creative-modal-title">{item.title}</h2>
               <p className="creative-modal-desc">{item.description}</p>

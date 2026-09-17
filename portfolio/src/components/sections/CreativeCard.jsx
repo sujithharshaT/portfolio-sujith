@@ -107,7 +107,6 @@ const CreativeCard = ({ item, onClick }) => {
       <div className="creative-info">
         <div className="creative-header">
           <h3 className="creative-title">{item.title}</h3>
-          <span className="creative-year">{item.year}</span>
         </div>
         
         <div className="creative-meta">

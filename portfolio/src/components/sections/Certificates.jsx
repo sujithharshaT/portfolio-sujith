@@ -78,7 +78,6 @@ const Certificates = () => {
 
                 <div className="cert-card-badges">
                   <span className="cert-domain-badge">{cert.domain}</span>
-                  <span className="cert-year-badge">{cert.year}</span>
                 </div>
               </div>
 
