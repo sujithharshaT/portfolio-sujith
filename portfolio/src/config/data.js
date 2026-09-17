@@ -1,13 +1,13 @@
 export const PORTFOLIO_DATA = {
   personal: {
     name: "SUJITH HARSHA",
-    role: "AI Creator • Developer • Filmmaker • Entrepreneur",
+    role: "AI Creator • Developer • Editor • Entrepreneur",
     shortStatement: "I TURN IDEAS INTO EXPERIENCES.",
     secondaryStatement: "I build digital experiences, experiment with AI and turn ambitious ideas into real products.",
     aboutText: [
       "I'm interested in the intersection of technology, creativity and entrepreneurship.",
       "I enjoy taking an idea from a rough concept and turning it into something people can actually interact with.",
-      "My interests span AI, web experiences, product design, electronics, automation, filmmaking and emerging technology."
+      "My interests span AI, web experiences, product design, electronics, automation, video editing and emerging technology."
     ],
     aboutKeywords: [
       "AI", "BUILD", "DESIGN", "CREATE", "EXPERIMENT", "LEARN"

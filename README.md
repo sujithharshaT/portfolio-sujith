@@ -1,6 +1,6 @@
 # Sujith Harsha — Personal Portfolio
 
-> **AI Creator • Developer • Filmmaker • Entrepreneur**  
+> **AI Creator • Developer • Editor • Entrepreneur**  
 > Modern, interactive, and high-performance personal portfolio built with React, Vite, Framer Motion, and Three.js.
 
 [![React](https://img.shields.io/badge/React-19-61dafb.svg?style=flat&logo=react)](https://react.dev/)
